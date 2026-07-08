@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage ('Checkout') {
             steps {
-                git branch : 'main', url : 'https://github.com/madanchandra/chatgpt-demo.git'
+                git branch : 'main', url : 'https://github.com/madanchandra/shared-library.git'
             }
         }
         stage ('Build') {
