@@ -2,24 +2,30 @@
 
 pipeline {
     agent any
+
     tools {
-        maven 'Maven-3.9.12'
-        jdk 'java21'
+        maven 'maven3.9.14'    // Use the Maven tool installed earlier
+        jdk 'java17'           // Use JDK 17
     }
+
     stages {
-        stage ('Checkout') {
+
+        stage('Checkout') {
             steps {
-                git branch : 'main', url : 'https://github.com/madanchandra/shared-library.git'
+                // Checkout the project from the 'project-1' branch in your GitHub repository
+                git branch: 'main', url: 'https://github.com/srikanth78933/simple-java-app.git'
             }
         }
-        stage ('Build') {
+
+        stage('Build') {
             steps {
-                mavenBuild()
+                mavenBuild()    // Calling shared library function
             }
         }
-        stage ('post_build') {
+
+        stage('Post-Build') {
             steps {
-                echo "build completed successfully"
+                echo "Build completed successfully."
             }
         }
     }
