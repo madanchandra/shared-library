@@ -4,7 +4,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'maven3.9.12'    // Use the Maven tool installed earlier
+        maven 'Maven-3.9.12'    // Use the Maven tool installed earlier
         jdk 'java21'           // Use JDK 21
     }
 
