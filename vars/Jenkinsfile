@@ -1,0 +1,26 @@
+@Library('my-shared-lib')
+
+pipeline {
+    agent any
+    tools {
+        maven 'Maven-3.9.12'
+        jdk 'java21'
+    }
+    stages {
+        stage ('Checkout') {
+            steps {
+                git branch : 'main', url : 'https://github.com/madanchandra/chatgpt-demo.git'
+            }
+        }
+        stage ('Build') {
+            steps {
+                mavenBuild()
+            }
+        }
+        stage ('post_build') {
+            steps {
+                echo "build completed successfully"
+            }
+        }
+    }
+}
